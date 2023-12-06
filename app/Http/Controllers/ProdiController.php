@@ -15,7 +15,9 @@ class ProdiController extends Controller
         // return view('prodi.index')->with('kampus', $kampus);
 
         $prodis = Prodi::all();
-        return view('prodi.index')->with('prodis', $prodis);
+        $success['data'] = $prodis;
+        return $this->sendResponse($success, 'Data prodi');
+        // return view('prodi.index')->with('prodis', $prodis);
     }
 
     public function allJoinFacade()
